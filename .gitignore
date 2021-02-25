@@ -100,3 +100,13 @@ ENV/
 
 # mypy
 .mypy_cache
+
+# kallisto build index files
+fragments2genes.txt
+*.metadata.tab
+*_whitelist.txt
+*.idx
+*fragments.tab
+*fragments.txt
+*annotation.merged.bed
+kallisto/inputs
