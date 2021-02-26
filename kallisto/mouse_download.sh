@@ -20,7 +20,7 @@ zcat gencode.vM23.primary_assembly.annotation.gtf.gz | gawk 'OFS="\t" {if ($3=="
 bedtools sort -i gencode.vM23.primary_assembly.annotation.bed > gencode.vM23.primary_assembly.annotation.sorted.bed
 bedtools merge -i gencode.vM23.primary_assembly.annotation.sorted.bed -s -c 4 -o collapse > gencode.vM23.primary_assembly.annotation.merged.bed
 gunzip GRCm38.primary_assembly.genome.fa.gz 
-bedtools getfasta -name -fo gencode.vM23.unspliced.fa -fi GRCm38.primary_assembly.genome.fa -bed gencode.vM23.primary_assembly.annotation.sorted.bed
+bedtools getfasta -name -fi GRCm38.primary_assembly.genome.fa -bed gencode.vM23.primary_assembly.annotation.sorted.bed | sed 's/::.*//' > gencode.vM23.unspliced.fa
 
 mv 737K-april-2014_rc.txt 10xv1_whitelist.txt
 mv 737K-august-2016.txt 10xv2_whitelist.txt
